@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoMigrator", "MongoMigrator\MongoMigrator.csproj", "{308491CE-88DE-4D0E-821E-F028CE04695D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoMigrator.Specs", "MongoMigrator.Specs\MongoMigrator.Specs.csproj", "{6110D6AF-CE94-46E6-92E1-2F74388F5F6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoMigrator.IntegrationSpecs", "MongoMigrator.IntegrationSpecs\MongoMigrator.IntegrationSpecs.csproj", "{AB010A59-BF22-4899-B1AC-1F39B8E77B15}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{308491CE-88DE-4D0E-821E-F028CE04695D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{308491CE-88DE-4D0E-821E-F028CE04695D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{308491CE-88DE-4D0E-821E-F028CE04695D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{308491CE-88DE-4D0E-821E-F028CE04695D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6110D6AF-CE94-46E6-92E1-2F74388F5F6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6110D6AF-CE94-46E6-92E1-2F74388F5F6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6110D6AF-CE94-46E6-92E1-2F74388F5F6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6110D6AF-CE94-46E6-92E1-2F74388F5F6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB010A59-BF22-4899-B1AC-1F39B8E77B15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB010A59-BF22-4899-B1AC-1F39B8E77B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB010A59-BF22-4899-B1AC-1F39B8E77B15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB010A59-BF22-4899-B1AC-1F39B8E77B15}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
