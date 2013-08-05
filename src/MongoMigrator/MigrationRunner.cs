@@ -7,16 +7,18 @@ namespace MongoMigrator
     {
         private readonly IMongoDatabaseFactory mongoDatabaseFactory;
         private readonly IMigrationReader migrationReader;
+        private readonly IDateTimeWrapper dateTimeWrapper;
 
-        public MigrationRunner() : this(new MongoDatabaseFactory(), new MigrationReader())
+        public MigrationRunner() : this(new MongoDatabaseFactory(), new MigrationReader(), new DateTimeWrapper())
         {
             
         }
         
-        public MigrationRunner(IMongoDatabaseFactory mongoDatabaseFactory, IMigrationReader migrationReader)
+        public MigrationRunner(IMongoDatabaseFactory mongoDatabaseFactory, IMigrationReader migrationReader, IDateTimeWrapper dateTimeWrapper)
         {
             this.mongoDatabaseFactory = mongoDatabaseFactory;
             this.migrationReader = migrationReader;
+            this.dateTimeWrapper = dateTimeWrapper;
         }
 
         public void Run(MigrationOptions migrationOptions)
@@ -30,7 +32,7 @@ namespace MongoMigrator
             foreach (var newMigration in newMigrations.OrderBy(x => x.GetVersion()))
             {
                 newMigration.Up(database);
-                versionCollection.Save(new VersionInfo{Version = newMigration.GetVersion()});
+                versionCollection.Save(new VersionInfo { Version = newMigration.GetVersion(), AppliedOn = dateTimeWrapper.Now()});
             }
         }
     }

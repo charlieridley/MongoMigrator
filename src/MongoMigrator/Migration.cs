@@ -9,7 +9,7 @@ namespace MongoMigrator
     public abstract class Migration : IMigration
     {
         public abstract void Up(IMongoDatabase mongoDatabase);
-        public int GetVersion()
+        public long GetVersion()
         {
             return (this.GetType().GetCustomAttributes(typeof(MigrationAttribute), true).Single() as MigrationAttribute).Version;
         }

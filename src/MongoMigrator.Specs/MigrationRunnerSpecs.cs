@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Machine.Fakes;
@@ -18,8 +19,11 @@ namespace MongoMigrator.Specs
         private static Mock<IMigration> migration1;
         private static Mock<IMigration> migration2;
         private static Mock<IMigration> migration3;
+        private static DateTime dateTime;
         Establish context = () =>
             {
+                dateTime = DateTime.Now;
+                The<IDateTimeWrapper>().WhenToldTo(x => x.Now()).Return(dateTime);
                 migration1 = new Mock<IMigration>();
                 migration2 = new Mock<IMigration>();
                 migration3 = new Mock<IMigration>();
@@ -42,7 +46,8 @@ namespace MongoMigrator.Specs
         It should_not_run_the_first_migration = () => migration1.Object.WasNotToldTo(x => x.Up(mongoDatabase.Object));
         It should_not_run_the_second_migration = () => migration2.Object.WasNotToldTo(x => x.Up(mongoDatabase.Object));
         It should_run_the_third_migration = () => migration3.Object.WasToldTo(x => x.Up(mongoDatabase.Object));
-        It should_insert_a_document_in_the_version_info_collection = () => modelCollection.Verify(x => x.Save(Moq.It.Is((VersionInfo m) => m.Version == 3)));
+        It should_insert_a_document_in_the_version_info_collection = () => modelCollection.Verify(x => x.Save(Moq.It.Is((VersionInfo m) => m.Version == 3 && m.AppliedOn == dateTime)));
+        
     }
 
     [Subject(typeof (MigrationRunner))]

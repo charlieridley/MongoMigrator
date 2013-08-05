@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using System;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace MongoMigrator
@@ -8,6 +9,7 @@ namespace MongoMigrator
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
-        public int Version { get; set; }
+        public long Version { get; set; }
+        public DateTime AppliedOn { get; set; }
     }
 }

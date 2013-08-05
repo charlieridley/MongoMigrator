@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DateTimeWrapper.cs" />
+    <Compile Include="IDateTimeWrapper.cs" />
     <Compile Include="IMigration.cs" />
     <Compile Include="IMigrationReader.cs" />
     <Compile Include="IModelCollection.cs" />

@@ -8,9 +8,9 @@ namespace MongoMigrator
 {
     public class MigrationAttribute : Attribute
     {
-        public int Version { get; set; }
+        public long Version { get; set; }
 
-        public MigrationAttribute(int version)
+        public MigrationAttribute(long version)
         {
             Version = version;
         }
