@@ -44,8 +44,6 @@ _TeamCity.ZBI.ComTrade/
 *.sass-cache
 
 #Project files
-!src/ZBI.ComTrade.Application/QueryProcessing/Build
-!src/ZBI.ComTrade.Application.Specs/QueryProcessing/Build
 #Subversion files
 .svn
 
